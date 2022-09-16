@@ -4,23 +4,18 @@ from tkinter.ttk import *
 import webbrowser
 # setup Tkinter window
 root = tk.Tk()
-root.geometry("1000x800")
+root.geometry("1000x620")
 root.title("Franspai's Python Sandbox")
-label = Label(root, text ="Welcome!" ).pack(padx=20, pady=20)
+root.configure(bg='white')
+
 # make a frame to for webpage button
 frame = Frame(root)
 # geometry
-frame.pack()
-# create a button function
+frame.pack(side=TOP)
 
 
-def button_hyperlink():
-    webbrowser.open_new(r"https://franspai.ddns.net")
-# button in frame
-
-
-btn = Button(frame, text ="Visit my website!", command=button_hyperlink)
-btn.pack(padx=20, pady=20)
+L = tk.Label(root, font=('Helvetica', 15, 'bold'), text="Welcome!", bg="white")
+L.pack(side=TOP)
 
 
 def paint(event):
@@ -33,16 +28,25 @@ def paint(event):
 # Canvas
 
 
-w = Canvas(root, width=1000, height=500)
+w = Canvas(root, width=1000, height=500, bg="white")
 
 w.bind("<B1-Motion>", paint)
 
-La = Label(root, text="Drag to draw")
+La = tk.Label(root, text="Drag to draw", bg="white")
 La.pack()
 w.pack()
+# create a button function
+
+
+def button_hyperlink():
+    webbrowser.open_new(r"https://franspai.ddns.net")
+
+
+btn = Button(root, text="Visit my website!", command=button_hyperlink)
+btn.pack(side=TOP)
 # button to close the program
-btnk = Button(root, text="Close", command= root.destroy)
-btnk.pack(side='top')
+btnk = Button(root, text="Close", command=root.destroy)
+btnk.pack(side=BOTTOM, pady=2)
 
 root.mainloop()
 
