@@ -1,9 +1,10 @@
 import webbrowser
 import tkinter as tk
 from tkinter import *
+from PIL import Image
 # setup Tkinter window
 root = tk.Tk()
-root.geometry("1000x720")
+root.geometry("1000x670")
 root.title("Franspai's Python Sandbox")
 root.configure(bg='white')
 
@@ -19,6 +20,8 @@ L.pack(side=TOP)
 # definition for bg changer
 light = PhotoImage(file="switchD.png")
 dark = PhotoImage(file="switchl.png")
+# resize image function
+
 
 switch_value = True
 
@@ -35,7 +38,7 @@ def toggle():
         switch_value = False
 
     else:
-        switch.config(image=light, bg="white", activebackground="white", fg="black")
+        switch.config(image=light, bg="white", activebackground="white")
 
         # Change back to light
         root.config(bg="white")
@@ -45,12 +48,12 @@ def toggle():
         switch_value = True
 
 
-switch = Button(root, image=light, bd=0, command=toggle)
+switch = Button(root, image=light, bg="white", command=toggle)
 switch.pack()
 
 def paint(event):
 # coordinates
-    x1, y1, x2, y2 = (event.x - 5), (event.y - 5), (event.x + 5), (event.y + 5)
+    x1, y1, x2, y2 = (event.x - 4), (event.y - 4), (event.x + 4), (event.y + 4)
 # paint color
     color = "#D559EA"
 
