@@ -1,10 +1,9 @@
+import webbrowser
 import tkinter as tk
 from tkinter import *
-from tkinter.ttk import *
-import webbrowser
 # setup Tkinter window
 root = tk.Tk()
-root.geometry("1000x620")
+root.geometry("1000x720")
 root.title("Franspai's Python Sandbox")
 root.configure(bg='white')
 
@@ -18,8 +17,8 @@ L = tk.Label(root, font=('Helvetica', 15, 'bold'), text="Welcome!", bg="white")
 L.pack(side=TOP)
 
 # definition for bg changer
-light = PhotoImage(file=switchl.png)
-dark = PhotoImage(file=switchD.png)
+light = PhotoImage(file="switchD.png")
+dark = PhotoImage(file="switchl.png")
 
 switch_value = True
 
@@ -32,7 +31,7 @@ def toggle():
         root.config(bg="black")
         L.config(bg="black", fg="white")
         La.config(bg="black", fg="white")
-        w.config(bg="black", fg="white")
+        w.config(bg="black")
         switch_value = False
 
     else:
@@ -42,12 +41,12 @@ def toggle():
         root.config(bg="white")
         L.config(bg="white", fg="black")
         La.config(bg="white", fg="black")
-        w.config(bg="white", fg="black")
+        w.config(bg="white")
         switch_value = True
 
 
 switch = Button(root, image=light, bd=0, command=toggle)
-
+switch.pack()
 
 def paint(event):
 # coordinates
