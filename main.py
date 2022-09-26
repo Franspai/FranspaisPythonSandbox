@@ -17,6 +17,37 @@ frame.pack(side=TOP)
 L = tk.Label(root, font=('Helvetica', 15, 'bold'), text="Welcome!", bg="white")
 L.pack(side=TOP)
 
+# definition for bg changer
+light = PhotoImage(file=switchl.png)
+dark = PhotoImage(file=switchD.png)
+
+switch_value = True
+
+def toggle():
+    global switch_value
+    if switch_value:
+        switch.config(image=dark, activebackground="black", background="black", fg="white")
+
+        # change window color
+        root.config(bg="black")
+        L.config(bg="black", fg="white")
+        La.config(bg="black", fg="white")
+        w.config(bg="black", fg="white")
+        switch_value = False
+
+    else:
+        switch.config(image=light, bg="white", activebackground="white", fg="black")
+
+        # Change back to light
+        root.config(bg="white")
+        L.config(bg="white", fg="black")
+        La.config(bg="white", fg="black")
+        w.config(bg="white", fg="black")
+        switch_value = True
+
+
+switch = Button(root, image=light, bd=0, command=toggle)
+
 
 def paint(event):
 # coordinates
